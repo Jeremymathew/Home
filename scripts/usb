@@ -1,0 +1,71 @@
+#!/usr/bin/python3
+
+### BY Jeremymathew ###
+
+### IMPORT ###
+#for Module use check README
+import os
+import time
+from colorama import Fore, Back, Style
+
+print(f"{Fore.BLUE}welcome to usb script")
+time.sleep(1)
+print(f"{Fore.GREEN}(1)Mount usb")
+print("(2)list Usb(s)")
+print(f"{Fore.RED}(3)unmount usb")
+ans = input(f"{Fore.GREEN}Choose option(1-2):{Fore.WHITE}")
+if ans == "1":
+    #The below line Does:
+    #   Option 1:
+    #       mounts a device named /dev/sdb1
+    #       NOTE: sdb1 was the usb name in my system
+    #       it can change accordingly,
+    #       So i recommend that first you list the usb
+    #   Option 2:
+    #       You can enter the device name(EG: sda1)
+    #       NOTE: Dont add /dev/ just the name of the device
+    #       Then You can Enter Mount point
+    #       NOTE: please put full path for example(/media/usb)
+    print("(1)/dev/sdb1")
+    print("(2)Other...")
+    ans = input(f"{Fore.GREEN}Choose option(1-2):{Fore.WHITE}")
+    if ans == "1":
+        mount = input(f"Mount point({Fore.RED}NOTE:please create a folder in /media/ to mount{Fore.WHITE}):")
+        os.system("clear")
+        os.system(f"sudo mount /dev/sdb1 {mount}")
+        print(f"/dev/sdb1 mounted at {mount}")
+    elif ans == "2":
+        ans = input("Usb device(EG: sdc1):")
+        mount = input(f"Mount point({Fore.RED}NOTE:please create a folder in /media/ to mount{Fore.WHITE}):")
+        os.system("clear")
+        os.system(f"sudo mount /dev/{ans} {mount}")
+        print(f"/dev/{ans} mounted at {mount}")
+    else:
+        print("invalid option")
+elif ans == "3":
+    #The Unmounting Section Opposite to Mount
+    print("(1)/dev/sdb1")
+    print("(2)Other...")
+    ans = input(f"{Fore.GREEN}Choose option(1-2):{Fore.WHITE}")
+    if ans == "1":
+        os.system("clear")
+        os.system("sudo umount /dev/sdb1")
+        print("unmounted /dev/sdb1")
+    elif ans == "2":
+        ans = input("usb name(EG: sda1):")
+        os.system("clear")
+        os.system(f"sudo umount /dev/{ans}")
+        print(f"unmounted /dev/{ans}")
+    else:
+        print("invalid option")
+elif ans == "2":
+    #lists the list of Usb(s)
+    # WARNING: not just Usb(s) will be listed, harddrives will be listed too.
+    os.system("clear")
+    #YOU can replace If wanted to "lsusb"
+    #which wont mention the device name EG: /dev/sda1
+    #But it does not requier root premissions
+    os.system("sudo fdisk -l")
+else:
+    # I Gave You 3 Options!!!
+    print("invalid option")

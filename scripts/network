@@ -1,0 +1,44 @@
+#!/usr/bin/python3
+
+### BY Jeremymathew ###
+
+### IMPORT ###
+#for Module use check README
+import os
+import socket
+import time
+from colorama import Fore, Back, Style
+from getmac import get_mac_address as gma
+
+host = socket.gethostname()
+#The below code at line 18 starts the 
+#network manager so that we can use it and
+#its applications to connect to wifi and
+#change your hostname etc
+os.system("sudo /etc/init.d/network-manager start")
+os.system("clear")
+print(f"{Fore.BLUE}welcome to Network Script{Fore.GREEN}")
+time.sleep(1)
+#The below displays Your mechine's Ip and Mac addr
+print(f"Ip Address: {Fore.WHITE}{socket.gethostbyname(host)}{Fore.GREEN}")
+print(f"Mac Address: {Fore.WHITE}{gma()}")
+print(f"{Fore.CYAN}(1)List wifi")
+print("(2)Connect wifi")
+ans = input(f"{Fore.GREEN}choose option(1-2):{Fore.WHITE}")
+if ans == "1":
+	#The below code tells the 
+	#nmcli:(N)etwork (M)anager (C)ommand (L)ine (I)nterface
+	#to display a list of wifi networks
+	os.system("clear")
+	os.system("nmcli dev wifi list")
+elif ans == "2":
+	#The below code tells the
+	#nmtui: (N)etwork (M)anager (T)ext (U)ser (I)nterface to open
+	#there you can:
+	#	Connect to a Wifi
+	#	Delete, Add or Edit a Wifi's config
+	#	Change Your Pc's Hostname
+ 	os.system("sudo nmtui")
+else:
+	# I Gave You 2 Options!!
+	print("invalid option")

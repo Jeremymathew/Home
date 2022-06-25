@@ -1,0 +1,34 @@
+By JeremyMathew
+
+Script list:
+	(1) Network (Helps you to connect a Wireless Wifi in terminal eg: Ubuntu server)
+	(2) Usb (Helps you to mount Usb drive(s) and unmount them in terminal eg: Ubuntu server)
+
+Language: python 3.9
+
+Modules Used:
+	Network:
+		os - file operations, etc
+		socket - Networking
+		time - Time related ops
+		colorama - Colorful Terminal
+		getmac - for Mac addr related ops
+	Usb:
+		os - file operations, etc
+		time - Time related ops
+		colorama - Colorful Terminal
+
+About the Scripts:
+I have a server which runs Ubuntu Server.
+So I had to mount Usb(s), nfs shared folders and connect to wireless wifi networks.
+Which was a pain.
+So I used python to automate the process.
+Hope It is useful for You too.
+
+Bugs:
+	The Issues tab is for that
+	Email: jeremymathewrajesh@gmail.com
+
+TODO list:
+	+ add nfs mount(Usb)
+	+ Make .sh version(Network, Usb)
